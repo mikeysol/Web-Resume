@@ -1,9 +1,0 @@
-<!-- Template for the Projects section of the Resume -->
-<div ng-show="SharedData.projects = sect.filteredProjects.length" class="sections">
-    <h4><span class="label label-primary"><b>Personal Projects</b></span></h4>
-    <ul>
-        <li class="info-listing" ng-repeat="project in sect.filteredProjects = (sect['personal projects'] | filter:SharedData.query)">
-            <p highlight="project" keywords="SharedData.keywords">{{project}}</p>
-        </li>
-    </ul>
-</div>
