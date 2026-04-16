@@ -1,8 +1,5 @@
-logs/*
-!.gitkeep
 node_modules/
-bower_components/
-tmp
+dist/
 .DS_Store
 .idea
-app/resume_view/
+*.log
