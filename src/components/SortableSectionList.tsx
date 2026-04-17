@@ -15,6 +15,7 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
+import { RiDraggable } from 'react-icons/ri'
 import { useResume } from '../context/ResumeContext'
 import type { ResumeSection } from '../types'
 
@@ -22,7 +23,14 @@ function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
 
-function SortableItem({ section }: { section: ResumeSection }) {
+function scrollToSection(sectId: string) {
+  const el = document.getElementById(`section-${sectId}`)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
+
+function SortableItem({ section, onSectionClick }: { section: ResumeSection; onSectionClick?: () => void }) {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
     id: section.sectId,
   })
@@ -33,16 +41,27 @@ function SortableItem({ section }: { section: ResumeSection }) {
   }
 
   return (
-    <li ref={setNodeRef} style={style} className="sortable-item" {...attributes} {...listeners}>
-      <div className="sortable-item-content">
-        <b>{capitalize(section.sectId)}</b>
-        <img src="/images/draggable.png" height="21" width="21" alt="drag handle" />
+    <li ref={setNodeRef} style={style} className="sortable-item" {...attributes}>
+      <div
+        className="sortable-item-content"
+        onClick={() => { scrollToSection(section.sectId); onSectionClick?.() }}
+        style={{ cursor: 'pointer' }}
+      >
+        <span>{capitalize(section.sectId)}</span>
+        <span
+          {...listeners}
+          className="drag-handle"
+          onClick={(e) => e.stopPropagation()}
+          aria-label="Drag to reorder"
+        >
+          <RiDraggable size={16} />
+        </span>
       </div>
     </li>
   )
 }
 
-export default function SortableSectionList() {
+export default function SortableSectionList({ onSectionClick }: { onSectionClick?: () => void }) {
   const { sections, setSections } = useResume()
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -63,7 +82,7 @@ export default function SortableSectionList() {
       <SortableContext items={sections.map((s) => s.sectId)} strategy={verticalListSortingStrategy}>
         <ul className="section-list">
           {sections.map((sect) => (
-            <SortableItem key={sect.sectId} section={sect} />
+            <SortableItem key={sect.sectId} section={sect} onSectionClick={onSectionClick} />
           ))}
         </ul>
       </SortableContext>

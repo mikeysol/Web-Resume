@@ -1,7 +1,11 @@
 import { useResume } from '../context/ResumeContext'
 import SortableSectionList from './SortableSectionList'
 
-export default function Sidebar() {
+interface Props {
+  onSectionClick?: () => void
+}
+
+export default function Sidebar({ onSectionClick }: Props) {
   const { query, setQuery, toggleKeywords, resetSections } = useResume()
 
   return (
@@ -10,32 +14,24 @@ export default function Sidebar() {
         className="search-input"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search"
+        placeholder="Search resume..."
+        aria-label="Search resume"
       />
-      <br />
       <div className="panel">
         <div className="panel-heading">Section View</div>
         <div className="panel-body">
-          <p>
-            <i>
-              Reorder sections in the resume by dragging list items here in the panel. Also click
-              Buzz Words to toggle orange colored words.
-            </i>
-          </p>
+          Drag to reorder sections. Toggle buzz words to highlight key skills.
         </div>
-        <div className="center">
+        <div className="sidebar-actions">
           <button onClick={toggleKeywords} className="btn-buzz" type="button">
             Buzz Words
           </button>
-        </div>
-        <SortableSectionList />
-        <div className="center">
           <button onClick={resetSections} className="btn-reset" type="button">
             Reset
           </button>
         </div>
+        <SortableSectionList onSectionClick={onSectionClick} />
       </div>
-      <br />
     </div>
   )
 }

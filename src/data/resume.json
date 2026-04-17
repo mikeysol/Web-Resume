@@ -5,40 +5,44 @@
       {
         "sectId": "intro",
         "template": "intro",
-        "name": "Michael S. Barnes",
+        "name": "Michael Solomon Barnes",
         "address": "San Francisco, CA",
         "website": "http://www.michaelbarnes.info/",
         "social media": [
-          {
-            "url": "https://www.linkedin.com/in/mikesbarnes",
-            "icon": "/images/linkedin-icon2.png"
-          },
-          {
-            "url": "https://github.com/mikeysol",
-            "icon": "/images/github.png"
-          }
+          { "url": "https://www.linkedin.com/in/mikesbarnes" },
+          { "url": "https://github.com/mikeysol" }
         ],
         "email": "michaelbarnesmail@gmail.com"
       },
       {
         "sectId": "summary",
         "template": "summary",
-        "title": "Software Developer/Computer Engineer",
-        "description": "Software development professional with experience in Java; Educated as a Computer Engineer developing both software and firmware on MicroControllers; Database experience with Oracle SQL; Scripting language experience with JavaScript; Actively learning Mobile development with Android; Experienced in Web development with AngularJS."
+        "title": "Senior Software Engineer",
+        "description": "Full Stack Software Engineer most proficient in frontend JavaScript and backend Java with experience in enterprise and startup development in financial services, ecommerce, and media platforms."
       },
       {
         "sectId": "skills",
         "template": "skills",
         "title": "Technical Skills",
         "list": [
+          { "val": "TypeScript", "type": { "web": true, "it": true } },
           { "val": "Java", "type": { "it": true, "engineering": true } },
           { "val": "JavaScript", "type": { "web": true } },
-          { "val": "Oracle SQL", "type": { "it": true } },
-          { "val": "Java JPA", "type": { "it": true } },
-          { "val": "Android App Development", "type": { "mobile": true, "engineering": true } },
-          { "val": "Spring MVC", "type": { "web": true, "it": true } },
-          { "val": "AngularJS", "type": { "web": true } },
-          { "val": "HTML5", "type": { "web": true } }
+          { "val": "Python", "type": { "it": true, "engineering": true } },
+          { "val": "React", "type": { "web": true } },
+          { "val": "Redux", "type": { "web": true } },
+          { "val": "SpringBoot", "type": { "it": true, "web": true } },
+          { "val": "PostgreSQL", "type": { "it": true } },
+          { "val": "GraphQL", "type": { "web": true, "it": true } },
+          { "val": "REST", "type": { "web": true, "it": true } },
+          { "val": "AWS", "type": { "it": true, "engineering": true } },
+          { "val": "Kubernetes", "type": { "it": true, "engineering": true } },
+          { "val": "Docker", "type": { "it": true, "engineering": true } },
+          { "val": "LangGraph", "type": { "it": true, "engineering": true } },
+          { "val": "LangChain", "type": { "it": true, "engineering": true } },
+          { "val": "Claude Code", "type": { "it": true } },
+          { "val": "Cursor", "type": { "it": true } },
+          { "val": "Windsurf", "type": { "it": true } }
         ]
       },
       {
@@ -46,47 +50,60 @@
         "template": "employment",
         "employment history": [
           {
-            "img": "/images/HTML5maker_logo.png",
-            "type": { "web": true },
-            "company name": "Html5maker.com",
+            "img": "/images/intuit-logo.svg",
+            "type": { "it": true, "web": true },
+            "company name": "Intuit",
+            "position": "Software Developer III",
+            "location": "San Francisco, CA",
+            "period": "March 2023 – Present",
+            "description": [
+              "Full stack developer in 2025 leading frontend development in React and TypeScript for the AI4Finance team — building UI components, dashboards, and AI-driven analysis with multi-agent frameworks, forecasting, and chat to aid finance analysts in productivity",
+              "Backend development in Python creating AI agents and tools utilizing LangGraph, SQL, data lakes, and connections to other microservices",
+              "Backend Java development in 2024 creating services, RESTful APIs, and frontend components with React for Intuit's B2B corporate tax platform ProConnect and Interview Service team",
+              "Full stack development in 2023 with the localization team to offer Intuit's products for Spanish-speaking customers on TurboTax/CreditKarma, migrating legacy content to a modern stack for client-facing webpages reaching over 100M customers",
+              "Designing and improving UX, backend services, and AI-driven applications utilizing models from Anthropic, Gemini, and OpenAI",
+              "Technologies: Python, Java, TypeScript, React, Jenkins, Splunk, Git, GraphQL, Argo, SageMaker, Databricks, LLMs, S3, Athena, and AWS infrastructure"
+            ]
+          },
+          {
+            "img": "/images/gracenote-logo.svg",
+            "type": { "it": true, "web": true },
+            "company name": "Gracenote, a Nielsen Co.",
+            "position": "Software Engineer II",
+            "location": "Emeryville, CA",
+            "period": "June 2018 – January 2023",
+            "description": [
+              "Full stack development with backend Java (SpringBoot) and frontend JavaScript (React/Redux) for a RESTful web app providing Video Descriptors, Video Popularity, and Personalized Images products to video streaming services",
+              "Maintained a distributed system of video metadata replicated across multiple languages and regions, used for content recognition, advertising, and marketing data",
+              "AWS infrastructure with backend/frontend servers, SQL DB, S3, ETL pipelines with Airflow, Kubernetes, and Big Data with Hadoop, Spark, and Parquet",
+              "Daily responsibilities in Java, SQL, and JavaScript with React/Redux, system design, and code reviews"
+            ]
+          },
+          {
+            "img": "/images/expedia-logo.svg",
+            "type": { "it": true, "web": true },
+            "company name": "Expedia Inc.",
             "position": "Software Engineer",
             "location": "San Francisco, CA",
-            "period": "December 2014 - June 2015",
+            "period": "February 2016 – June 2017",
             "description": [
-              "Participated in a startup environment often working remotely or in a shared workspace",
-              "Supported development of templates and front-end tools clients used to create banners and advertisements",
-              "Created back-end Java code with RESTful integration to the front-end components developed in AngularJS",
-              "Developed templates with HTML5 design and Bootstrap CSS",
-              "Source control with Git, and package management with Gradle, NPM, Bower, Grunt"
+              "Full stack development on a Service Oriented Architecture (SOA) for a web ecommerce platform with over 1B monthly page views and 100M+ monthly unique visitors",
+              "Backend Java and frontend JavaScript on the Checkout Team and Itinerary Team",
+              "Developed UI enhancements for users' payment and post-payment experience",
+              "Technologies: Java, Scala, Spring MVC, jQuery, HTML, CSS, React, REST, NodeJS, Gradle, Git, Jenkins, JUnit, Ruby, and Cucumber"
             ]
           },
           {
             "img": "/images/jpmorgan-chase.jpg",
             "type": { "it": true },
-            "company name": "JPMorgan Chase & Co. Global Fund Services",
+            "company name": "JPMorgan Chase & Co.",
             "position": "Application Developer",
             "location": "New York, NY",
-            "period": "June 2012 - September 2014",
+            "period": "June 2012 – September 2014",
             "description": [
-              "Developed business process code in Java that automated the workflow of internal teams",
-              "Implemented Java Spring MVC framework",
-              "Developed unit tests in JUnit",
-              "Controller logic developed in Java JPA",
-              "Oracle SQL for back-end database development, stored procedures, and reporting",
-              "Business Intelligence (BI) dashboards developed with JavaScript API for Tableau",
-              "Package management with Maven",
-              "Executed the Agile Software Development Lifecycle (SDLC) with 2 week Sprints managed with JIRA"
-            ]
-          },
-          {
-            "img": "/images/jpmorgan-chase.jpg",
-            "type": { "it": true },
-            "company name": "JPMorgan Chase & Co. Compute Back Bone (CBB)",
-            "position": "Intern",
-            "location": "Jersey City, NJ",
-            "period": "Summer 2011",
-            "description": [
-              "Developed Python scripts for discovering activity such as a client exceeding resource allocation on our cloud infrastructure"
+              "Distributed system in Java, Spring MVC, JPA/Hibernate, Oracle SQL, and Flash that automated and facilitated the workflow of internal teams pricing Net Asset Values for funds and pensions",
+              "Business Intelligence dashboards with Tableau and ETL jobs with Pentaho",
+              "Agile team with 2-week sprints; daily responsibilities in backend Java and SQL reports"
             ]
           }
         ]
@@ -103,14 +120,14 @@
               "location": "Syracuse, NY",
               "degree": [
                 {
-                  "name": "Bachelor of Science Degree in Computer Engineering",
+                  "name": "Bachelor of Science in Computer Engineering",
                   "date earned": "May 2012"
                 }
               ],
               "school projects": [
-                "Designed and developed an Electronic Refreshable Braille Display for the Visually Impaired",
-                "Created a Computer Graphics Project using OpenGL(C++)",
-                "Real Time Digital Audio Effects Playback with MicroController and FPGA (Motorola Assembly language)"
+                "Designed and built an Electronic Refreshable Braille Display for the Visually Impaired",
+                "Computer Graphics project using OpenGL (C++)",
+                "Real-Time Digital Audio Effects Playback with MicroController and FPGA (Motorola Assembly)"
               ]
             }
           }
@@ -120,9 +137,9 @@
         "sectId": "projects",
         "template": "projects",
         "personal projects": [
-          "Currently developing an Android application with Bluetooth Low Energy (BLE) beacons",
-          "Bike Safety app with Android smart watch or mobile phone",
-          "Website to openly collaborate on music projects in real time utilizing HTML5 features"
+          "Interactive Web Resume — React + TypeScript app with filtering, drag-and-drop reordering, dark mode, and keyword highlighting (this site)",
+          "AI Finance Dashboard — multi-agent LangGraph application for financial analysis, forecasting, and chat interface for finance analysts",
+          "BLE Bike Safety App — Android application using Bluetooth Low Energy beacons for real-time cyclist safety alerts"
         ]
       }
     ]

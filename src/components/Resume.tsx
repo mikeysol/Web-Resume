@@ -1,34 +1,33 @@
+import { motion } from 'framer-motion'
 import { useResume } from '../context/ResumeContext'
-import TopNav from './TopNav'
 import Sidebar from './Sidebar'
-import WelcomeModal from './WelcomeModal'
 import SectionRenderer from './SectionRenderer'
 
 export default function Resume() {
-  const { sections, showWelcome, setShowWelcome } = useResume()
+  const { sections } = useResume()
 
   return (
-    <div className="container-fluid sections">
-      {showWelcome && <WelcomeModal onClose={() => setShowWelcome(false)} />}
-      <TopNav />
-      <div className="row-view">
-        <div className="sidebar-col">
-          <Sidebar />
-        </div>
-        <div className="content-col">
-          <div className="perspective-nav-wrapper">
-            <PerspectiveNav />
-          </div>
-          <br />
-          <ul className="list-unstyled">
-            {sections.map((sect) => (
-              <li key={sect.sectId} className="info-listing-wrapper">
-                <SectionRenderer section={sect} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+    <div className="app-layout">
+      <aside className="sidebar-col">
+        <Sidebar />
+      </aside>
+      <main className="content-col">
+        <PerspectiveNav />
+        <ul className="list-unstyled">
+          {sections.map((sect, i) => (
+            <motion.li
+              key={sect.sectId}
+              id={`section-${sect.sectId}`}
+              className="info-listing-wrapper"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.07, duration: 0.35, ease: 'easeOut' }}
+            >
+              <SectionRenderer section={sect} />
+            </motion.li>
+          ))}
+        </ul>
+      </main>
     </div>
   )
 }
@@ -44,14 +43,16 @@ function PerspectiveNav() {
   ]
 
   return (
-    <ul className="nav-pills">
+    <div className="perspective-nav">
       {navItems.map((item) => (
-        <li key={item.value} className={perspective === item.value ? 'active' : ''}>
-          <button onClick={() => setPerspective(item.value)}>
-            <b>{item.name}</b>
-          </button>
-        </li>
+        <button
+          key={item.value}
+          className={`perspective-btn${perspective === item.value ? ' active' : ''}`}
+          onClick={() => setPerspective(item.value)}
+        >
+          {item.name}
+        </button>
       ))}
-    </ul>
+    </div>
   )
 }

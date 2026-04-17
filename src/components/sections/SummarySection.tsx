@@ -10,13 +10,14 @@ export default function SummarySection({ section }: Props) {
   const { keywords } = useResume()
 
   return (
-    <div id="summary" className="section-card">
-      <div className="center">
-        <p>
-          <b>{section.title}</b>
-        </p>
+    <div className="section-card">
+      <div className="section-header">
+        <div className="section-label">Summary</div>
+        <p className="summary-title">{section.title}</p>
       </div>
-      <p className="center">{highlightText(section.description, keywords)}</p>
+      <div className="section-content">
+        <p className="summary-desc">{highlightText(section.description, keywords)}</p>
+      </div>
     </div>
   )
 }

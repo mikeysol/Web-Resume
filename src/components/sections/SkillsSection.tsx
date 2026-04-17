@@ -16,17 +16,17 @@ export default function SkillsSection({ section }: Props) {
   if (filtered.length === 0) return null
 
   return (
-    <div id="skills" className="section-card">
-      <h4>
-        <span className="section-label">Technical Skills</span>
-      </h4>
-      <ul>
+    <div className="section-card">
+      <div className="section-header">
+        <div className="section-label">Technical Skills</div>
+      </div>
+      <div className="skills-grid">
         {filtered.map((skill) => (
-          <li key={skill.val} className="info-listing">
-            <p>{skill.val}</p>
-          </li>
+          <span key={skill.val} className="skill-chip">
+            {skill.val}
+          </span>
         ))}
-      </ul>
+      </div>
     </div>
   )
 }
