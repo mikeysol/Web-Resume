@@ -1,6 +1,5 @@
 export interface SocialMedia {
   url: string
-  icon: string
 }
 
 export interface IntroSection {

@@ -15,17 +15,19 @@ export default function ProjectsSection({ section }: Props) {
   if (filtered.length === 0) return null
 
   return (
-    <div id="projects" className="section-card">
-      <h4>
-        <span className="section-label">Personal Projects</span>
-      </h4>
-      <ul>
-        {filtered.map((project, i) => (
-          <li key={i} className="info-listing">
-            <p>{highlightText(project, keywords)}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="section-card">
+      <div className="section-header">
+        <div className="section-label">Personal Projects</div>
+      </div>
+      <div className="section-content">
+        <ul className="projects-list">
+          {filtered.map((project, i) => (
+            <li key={i} className="project-item">
+              {highlightText(project, keywords)}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

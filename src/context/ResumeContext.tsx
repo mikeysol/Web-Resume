@@ -3,18 +3,20 @@ import type { ResumeSection, Perspective } from '../types'
 import resumeData from '../data/resume.json'
 
 const DEFAULT_KEYWORDS =
-  'java,html5,angularjs,c\\+\\+,python,sql,android,javascript,front-end,back-end,agile,bi,unit tests'
+  'typescript,java,javascript,python,react,redux,springboot,aws,kubernetes,docker,langgraph,langchain,graphql,rest,sql,full stack,ai,llm'
 
 const WELCOME_HTML =
-  'Hi, I am <b>Michael Barnes</b> and this is a small demo in <b>React</b> that turns a standard resume' +
-  ' into something more fun. <br/> <br/>' +
-  '<ul><li>You can <b>filter</b> out sections via the search bar</li>' +
-  '<li><b>Reorder</b> the sections via the Section View panel</li>' +
-  '<li>At the top of page <b>navigate to different perspectives</b> such as Web or all Software Engineering.</li>' +
-  '<li><b>Toggle colored Buzz Words</b> on/off to help scan for desired skills</li></ul>' +
-  'I will be adding features over time. Check out the source code on my gitHub.<br/>' +
-  "If you're <b>hiring</b> then connect with me on LinkedIn or send me an email.<br/>" +
-  'Thanks and enjoy!'
+  'Hi, I am <b>Michael Barnes</b> — Full Stack Software Engineer based in San Francisco.' +
+  '<br/><br/>' +
+  'This interactive resume lets you explore my experience in a few ways:<br/>' +
+  '<ul>' +
+  '<li><b>Filter</b> sections via the search bar on the left</li>' +
+  '<li><b>Reorder</b> sections by dragging items in the Section View panel</li>' +
+  '<li><b>Perspective tabs</b> at the top filter by role type (IT, Engineering, Web)</li>' +
+  '<li><b>Buzz Words</b> toggles keyword highlights to help scan for skills</li>' +
+  '</ul>' +
+  'Check out the <b>About</b> and <b>Projects</b> pages for more.<br/>' +
+  "If you're <b>hiring</b>, connect with me on LinkedIn or send an email. Thanks!"
 
 interface ResumeContextValue {
   sections: ResumeSection[]
@@ -29,6 +31,8 @@ interface ResumeContextValue {
   welcomeHtml: string
   showWelcome: boolean
   setShowWelcome: (show: boolean) => void
+  darkMode: boolean
+  toggleDarkMode: () => void
 }
 
 const ResumeContext = createContext<ResumeContextValue | null>(null)
@@ -40,11 +44,22 @@ export function ResumeProvider({ children }: { children: ReactNode }) {
   const [keywords, setKeywords] = useState(DEFAULT_KEYWORDS)
   const [perspective, setPerspective] = useState<Perspective>('all')
   const [showWelcome, setShowWelcome] = useState(false)
+  const [darkMode, setDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true')
 
   useEffect(() => {
     const timer = setTimeout(() => setShowWelcome(true), 1000)
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('darkMode', 'true')
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('darkMode', 'false')
+    }
+  }, [darkMode])
 
   const toggleKeywords = useCallback(() => {
     setKeywords((prev) => (prev === '' ? DEFAULT_KEYWORDS : ''))
@@ -54,6 +69,10 @@ export function ResumeProvider({ children }: { children: ReactNode }) {
     setSections([...originalSections])
     setQuery('')
   }, [originalSections])
+
+  const toggleDarkMode = useCallback(() => {
+    setDarkMode((prev) => !prev)
+  }, [])
 
   return (
     <ResumeContext.Provider
@@ -70,6 +89,8 @@ export function ResumeProvider({ children }: { children: ReactNode }) {
         welcomeHtml: WELCOME_HTML,
         showWelcome,
         setShowWelcome,
+        darkMode,
+        toggleDarkMode,
       }}
     >
       {children}
